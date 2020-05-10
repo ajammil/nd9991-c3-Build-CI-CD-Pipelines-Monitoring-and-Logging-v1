@@ -16,8 +16,8 @@ pipeline {
               }
          }
          stage('Security Scan') {
-              steps { 
-                 aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
+              steps{ 
+                   aquaMicroscanner imageName: 'aboullaite/sb-app', notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html'
               }
          }         
          stage('Upload to AWS') {
